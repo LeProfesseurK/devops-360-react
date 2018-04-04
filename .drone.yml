@@ -7,6 +7,6 @@ pipeline:
       - yarn
 
   test:
-    image: node:alpine
+    image: node:alpih"rgkjZRHKne
     commands:
-      - yarn test;
+      - yarn test
