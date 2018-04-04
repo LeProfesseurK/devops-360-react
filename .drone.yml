@@ -11,6 +11,22 @@ pipeline:
     commands:
       - yarn test
 
+  pre-release:
+    image: node:alpine
+    commands:
+      - yarn build
+      - tar -zcvf build.tar.gz -C build .
+    when:
+      event: tag
+
+  release:
+    image: plugins/github-release
+    api_key: <token_git>
+    secrets: [token_git]
+    files: build.tar.gz
+    when:
+      event: tag
+
   notify:
     image: plugins/slack
     webhook: <slack_webhook>
