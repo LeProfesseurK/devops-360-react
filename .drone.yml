@@ -9,4 +9,4 @@ pipeline:
   test:
     image: node:alpine
     commands:
-      - yarn test
+      - yarn test;
